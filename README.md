@@ -1,7 +1,39 @@
 P65Pas 0.3
 ==========
 
-Multi-platform Pascal cross-compiler for 6502 CPU.
+I forked this- not because I have a Commodore or 6502(I can emulate one). 
+But rather as a base for what other projects I have planned.
+Using similar to this- we can rewrite the IDE to something more sane than just mimic what Borland gave us.
+
+In this day and age- the FP application has very limited use- and is very PITA to use.
+The IDE needs a rewrite.
+
+Further I feel FPC itself needs a major rewrite.
+This 6502 fork can be applied- with all native bugs of the 8088Intel 8- bit CPU also.
+With some work Atmel AVR (arduino) and 8bit ARM CPUs can also be used with the IDE.
+
+The GameDuino add on gives us 16bit graphics mode support, 
+albeit in RAW Hardware acess, 8 cpu bits at a time.
+
+The ATMEGA solves this in 16bit CPU mode.
+
+As per "hello world" demos:
+-write and writeLn routines back in the day- were a hack anyways.
+The whole damn mess was a hack- and in some cases:
+
+    RUSHED and WRONG
+
+I find that although other CPUs - or GPUs can be supported-
+forcing RTL units on anyone thru the compiler- is wrong.
+
+Better to expand upon the core units- then create unneeded requirements.
+It is not our job to impose on "FREE programmers" -in ways that limit them.
+
+This project helps to solve this problem.
+---
+
+P65Pas is a Multi-platform Pascal cross-compiler for 6502 CPU.
+
 
 ![P65Pas IDE](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2019/03/Sin-título.png "P65Pas IDE")
 
