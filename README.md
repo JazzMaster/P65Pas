@@ -1,47 +1,81 @@
-P65Pas 0.3
-==========
+This is a FORK OF A FORK.
+Me Thinks someone is taking credit for sub-work or work on another existing project.
+They should be merging the 6502 code back into the PIC code as a "unified project".
+(This excessive forking is a waste.)
 
-I forked this- not because I have a Commodore or 6502(I can emulate one). 
-But rather as a base for what other projects I have planned.
+Original project is here:
+
+https://github.com/t-edson/PicPas
+
+
+Graphics werent changed or anything- much like FTC forks LTC forks BTC.
+(-Yet they all have the resources of BTC lying around)
+
+
+This is quickly becoming a base for what other projects I have planned.<br>
 Using similar to this- we can rewrite the IDE to something more sane than just mimic what Borland gave us.
 
-In this day and age- the FP application has very limited use- and is very PITA to use.
-The IDE needs a rewrite.
+In this day and age- the FP application has very limited use- and is very PITA to use.<br>
+The fpIDE(TVision) needs a rewrite for the 20th Century.
+
+We dont need the full LCL of Lazarus. Its just too damn bloated. <br>
+Other Routines and themes have been written.
 
 Further I feel FPC itself needs a major rewrite.
-This 6502 fork can be applied- with all native bugs of the 8088Intel 8- bit CPU also.
-With some work Atmel AVR (arduino) and 8bit ARM CPUs can also be used with the IDE.
 
-The GameDuino add on gives us 16bit graphics mode support, 
+Most of these TARGETS are hardware boards with direct ReadPort/WritePort access.<br>
+Its extremely low-level and these board dont usually have an OS- let alone anything modern day.
+
+This is embedded programming at its finest- and sometimes- not so finest.
+
+This 6502 fork can be applied also to the 8088Intel 8-bit CPU.<br>
+The Intel 8088 is similar to the ATMEGA 16bit cpu with a modified instruction set.<br>
+The Atmel AVR(arduino) CPU differs in implementation of eeprom flashing the program on the die.<br>
+Its a very PITA with UV lights to write microcode for an x86 CPU.
+
+With some work- 
+
+        Atmel AVR (arduino) and 8bit ARM CPUs can also be used with the IDE.
+        Code is upstream Subversion(FPC)
+        
+There is a way already to make a .hex file.<br>
+Code wil be merged in here (not forked seperately).
+
+The GameDuino add on gives us 16bit graphics mode support, <br>
 albeit in RAW Hardware acess, 8 cpu bits at a time.
 
-The ATMEGA solves this in 16bit CPU mode.
+The ATMEGA solves this for its 16bit CPU.
 
 As per "hello world" demos:
--write and writeLn routines back in the day- were a hack anyways.
+
+write and writeLn routines back in the day- were a hack anyways.<br>
 The whole damn mess was a hack- and in some cases:
 
-    RUSHED and WRONG
+    RUSHED and WRONG and incomplete
 
-I find that although other CPUs - or GPUs can be supported-
+I find that although other CPUs - or GPUs can be supported-<br>
 forcing RTL units on anyone thru the compiler- is wrong.
 
-Better to expand upon the core units- then create unneeded requirements.
+Better to expand upon the core units- then create unneeded requirements.<br>
 It is not our job to impose on "FREE programmers" -in ways that limit them.
 
 This project helps to solve this problem.
 ---
 
-P65Pas is a Multi-platform Pascal cross-compiler for 6502 CPU.
+This P65Pas fork is a Multi-platform Pascal cross-compiler for 6502 CPU.
 
 
 ![P65Pas IDE](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2019/03/Sin-título.png "P65Pas IDE")
 
-P65Pas is a Pascal compiler and IDE, written in Free Pascal, which generates binary and ASM code for the 6502 CPU.
+P65Pas is a Pascal compiler and IDE, written in Free Pascal, <br>
+which generates binary and ASM code for the 6502 CPU.
 
-No additional libraries or software required to compile. P65Pas generates the *.prg file directly. Additionally a BASIC Commodore program (POKE's) can be generated to charge the machine code. 
+No additional libraries or software required to compile. <br>
+P65Pas generates the *.prg file directly. <br>
+Additionally a BASIC Commodore program (POKE's) can be generated to charge the machine code. 
 
-P65Pas works with a simplified version of the Pascal language, that has been adapted to work with limited resources small devices.
+P65Pas works with a simplified version of the Pascal language, <br>
+that has been adapted to work with limited resources small devices.
 
 Currently, it only supports basic types. 
 
@@ -51,9 +85,11 @@ The P65Pas compiler includes optimization options so the code obtained is genera
 
 ## Installation
 
-P65Pas doesn't need installation, and have not dependencies, except the commons of the operative system, where it's runnig.
+P65Pas doesn't need installation, and have not dependencies, <br>
+except the commons of the operative system, where it's runnig.
 
-To run, it's only needed to download the folder from GitHub. There is compiled binaries for Windows-64 version (P65Pas-win64.exe) and Ubuntu version (P65Pas-linux).
+To run, it's only needed to download the folder from GitHub.<br> 
+There is compiled binaries for Windows-64 version (P65Pas-win64.exe) and Ubuntu version (P65Pas-linux).
 
 If it's required other platform, it need to be compiled from the source code.
 
@@ -61,9 +97,11 @@ When starting, P65Pas could generate warning messsages, if not needed folders ex
 
 ## Hello World
 
-P65Pas can compile to a general 6502 system, and it's not possible to do a general "Hello World" program.
+P65Pas can compile to a general 6502 system, <br>
+and it's not possible to do a general "Hello World" program.
 
-If we are going to compile for Commodore 64, we can use the Commodore64 unit and use the CHROUT procedure to send chars to screen:
+If we are going to compile for Commodore 64, <br>
+we can use the Commodore64 unit and use the CHROUT procedure to send chars to screen:
 
 ```
 {"Hello World" P65Pas program.}
@@ -78,17 +116,22 @@ begin
   asm RTS end 
 end.
 ```
-This code can generate a PRG program, to send the message "Hello" on the screen of the Commodore 64.
+This code can generate a PRG program,<br> 
+to send the message "Hello" on the screen of the Commodore 64.
 
-The code "asm RTS end" line, generate a RTS assembler instruction in the program. It's needed because the PRG program is called with a JSR instruction. 
+The code "asm RTS end" line, generate a RTS assembler instruction in the program.<br>
+It's needed because the PRG program is called with a JSR instruction. 
 
 ## Devices supported
 
-Currently, only 6502 CPU is supported, but the compiler is designed to include some variants. Of course, compatible devices, like 6510, can be targeted too.
+Currently, only 6502 CPU is supported, but the compiler is designed to include some variants.<br>
+Of course, compatible devices, like 6510, can be targeted too.
 
-Support for differents systems (like Apple II, Atari 800XL, Commodore 64, ...) can be implemented using appropriate units.
+Support for differents systems <br>
+(like Apple II, Atari 800XL, Commodore 64, ...) can be implemented using appropriate units.
 
-Currently there is only a unit to support Commodore 64 system. So, to compile to Commodore 64 system, it's recommended use the unit: "Commodore64":
+Currently there is only a unit to support Commodore 64 system.<br> 
+So, to compile to Commodore 64 system, it's recommended use the unit: "Commodore64":
 
 ```
 program anything;
@@ -98,7 +141,8 @@ begin
 end. 
 ```
 
-The unit Commodore64 set the compiler to start compiling in the address $0801, and includes a starting code to run the program after loading the PRG.
+The unit Commodore64 set the compiler to start compiling in the address $0801,<br>
+and includes a starting code to run the program after loading the PRG.
 
 Moreover, this unit includes some routines (like CHROUT and CHRIN) to control C64 screen and keyboard.
 
@@ -128,18 +172,11 @@ Some features of the IDE are:
 
 •	Translated to english, french, spanish and german.
 
-![Tito's Terminal](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2017/06/P65Pas-0.7_en.png "P65Pas with dark skin")
-
-![Tito's Terminal](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2017/11/P65Pas-Linux.jpg "P65Pas for Ubuntu")
-
-![Tito's Terminal](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2018/05/P65PasMac.jpg "P65Pas for Mac")
-
 
 ## Debugger/Simulator
 
-P65Pas includes a graphical debugger for ASM instructions:
+P65Pas includes a graphical debugger for ASM instructions
 
-![Tito's Terminal](http://blog.pucp.edu.pe/blog/tito/wp-content/uploads/sites/610/2017/11/P65Pas-simulator.png "P65Pas debugger-simulator")
 
 To control the execution, the following keys can be used:
 
@@ -150,109 +187,10 @@ F8 -> Step by step over subroutine.
 F9 -> Run the program in real time.
 
 
-## Language Reference
-
-### Program structure
-
-```
-program <Name>;  //optional
-uses
-  //Units declarations
-
-const
-  //Constants declarations
-
-var
-  //Variables declarations
-
-//<Procedures declaration>
-
-begin
-  //Main program body
-end.
-```
-
-### Unit structure
-
-```
-unit <name>;
-interface
-uses
-  //units declaration
-const
-  //Constant declaration
-var
-  //Variable declaration
-
-//Procedures declaration
-
-implementation
-
-uses
-  //units declaration
-const
-  //Constant declaration
-var
-  //Variable declaration
-
-//Procedures implementation
-
-end.
-```
-
-### Operators
-
-```
-Operator            Precedence
-=================== ==========
- NOT, sign “-“         6
- *, DIV, MOD, AND      5
- +, -, OR, XOR         4
- =, <>, <, <=, >, >=   3
- := +=                 2
- ```
-
-### Types
-
-```
-Type           Size
-============== ==========
- boolean       1 bit
- byte          1 byte
- char          1 byte
- word          2 bytes
- dword         4 bytes
- ```
-Numerical types are all unsigned.
-
-### Variables
-
-Variables are defined with the VAR keyword:
-
-```
-var
-  var1 : byte;
-  large_name_variable: boolean;
-```
-
-Variables can be defined too, at an absolute memory address:
-
-```
-var
-  PORTB: BYTE absolute $06;
-  pin1: boolean; absolute $07;
-```
-
-Specific byte of a word, can be access using fields:
-
-```
-  word_var.Low := $ff;
-  word_var.High := $ff;
-```
-
 ### Control structures
 
-P65Pas doens't follow the common Pascal syntax. Instead, a new Modula-2, style syntax is implemented.
+P65Pas doens't follow the common Pascal syntax.<br> 
+Instead, a new Modula-2, style syntax is implemented.
 
 The common control structures have the following forms:
 
@@ -290,7 +228,8 @@ END;
 
 ### System Functions
 
-System functions are always available in code. They don't need to be defined or included in a unit.
+System functions are always available in code.<br> 
+They don't need to be defined or included in a unit.
 
 ```
 FUNCTION       DESCRIPTION
@@ -343,14 +282,16 @@ begin
 end;
 ```
 
-REGISTER parameters are fast, because they use the W register, so only one REGISTER parameter can be used. 
-As REGISTER parameter is stored in W register, any operation using the W register, could lose its value, so the first operation in a procedure, using a REGISTER parameter must be read this parameter.
+REGISTER parameters are fast, because they use the W register, <br>
+so only one REGISTER parameter can be used. 
+
+As REGISTER parameter is stored in W register, any operation using the W register,<br>
+could lose its value, so the first operation in a procedure, <br>
+using a REGISTER parameter must be read this parameter.
 
 ### ASM blocks
 
 P65Pas have a complete support for inserting ASM code inside the Pascal source.
-
-ASM blocks must be included between the delimiters ASM and END:
 
 ```
 procedure DoSomething;
@@ -363,8 +304,6 @@ begin
   end
 end;
 ```
-
-ASM blocks are not instructions, that's why they are not finished with ";". It lets the ASM block, to be included in almost any place of the source code, like a comment.
 
 WARNING: Changing some register used by compiler, inside an ASM block, can generate errors in compilation or in the code compiled.
 
@@ -424,13 +363,18 @@ Directives are special instructions inserted in the source code that are interpr
 
 ### Directive Programming Language
 
-Directives have their own programmig language. It's a simple and interpreted language (with instructions, variables, operators and conditional structures) what is different from Pascal.
+Directives have their own programmig language. 
+It's a simple and interpreted language 
+(with instructions, variables, operators and conditional structures) 
+-what is different from Pascal.
 
 Some features of this programming language are:
 
 *	It's case insensitive, like Pascal is.
 *	Instructions are contained in one single line and are delimited by {$ … }
-*	It's not a typed language. Variables can change their type and value in execution and different type variables can be assigned.
+*	It's not a typed language. 
+Variables can change their type and value in execution and different type variables can be assigned.
+
 *	Variables don't need to be defined before using.
 *	There are only two types for variables: strings and numbers.
 
@@ -472,7 +416,9 @@ The next directives are supported by P65Pas:
 
 Indicates the compiler to compile to a Commodore 64 system. 
 
-In this mode when compiling at $0801, the compiler generates the instruction "SYS 2062" in the BASIC buffer, to run automatically the program after loading the PRG file.
+In this mode when compiling at $0801, 
+the compiler generates the instruction "SYS 2062" in the BASIC buffer, 
+to run automatically the program after loading the PRG file.
 
 #### $FREQUENCY
 
@@ -736,6 +682,7 @@ There is still, much work for development or documentation, so any help will be 
 The source code of the compiler is in the folder /Source.
 
 To compile P65Pas, it's needed to have the following libraries:
+(included)
 
 * SynFacilUtils
 * MisUtils
@@ -752,6 +699,7 @@ These libraries don't include package. They are only files in folders that need 
 P65Pas has been compiled, using the version 1.8.0 of Lazarus. Tested in Windows, Ubuntu and Mac.
 
 To have more information about the compiler, check the Technical Documentation (Only in spanish by now).
+(English translation pending)
 
 ## Libraries
 
